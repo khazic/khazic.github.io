@@ -1,26 +1,69 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lao Khazic</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: white;
-        }
-        h1 {
-            font-size: 4em;
-            color: black;
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chonghan Liu</title>
+  <style>
+    body { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 16px; background-color: #fdfdfd; color: #333; margin: 0; padding: 0; }
+    a { color: #1772d0; text-decoration: none; }
+    a:hover { color: #f09228; text-decoration: none; }
+    strong { font-weight: bold; }
+    table { border: 0; border-spacing: 0; border-collapse: collapse; }
+    td { padding: 0; }
+    .container { width: 800px; margin: 0 auto; padding: 20px 0; }
+    .bio-table td { padding: 10px; }
+    .section-heading { padding: 20px 10px 5px 10px; font-size: 22px; font-weight: bold; border-bottom: 1px solid #999; width: 100%; }
+    .pub-row td { padding: 20px 10px; vertical-align: top; border-bottom: 1px solid #eee; }
+    .pub-img { width: 160px; min-width: 160px; }
+    .pub-title { font-size: 16px; font-weight: bold; }
+    .pub-venue { font-style: italic; }
+    .pub-authors { font-size: 15px; }
+    .pub-desc { font-size: 14px; color: #555; }
+    .pub-links a { font-size: 14px; margin-right: 8px; }
+    .footer { text-align: center; padding: 20px 0; color: #999; font-size: 13px; border-top: 1px solid #ddd; margin-top: 30px; }
+    .footer a { color: #999; }
+    .footer a:hover { color: #1772d0; }
+    .name { font-size: 28px; font-weight: bold; }
+    .bio-text { font-size: 15px; line-height: 1.6; }
+    .bio-links { font-size: 15px; }
+    .bio-links a { margin-right: 5px; }
+    .placeholder-img { width: 160px; height: 100px; background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 12px; font-family: Arial, sans-serif; }
+    @media screen and (max-width: 860px) { .container { width: 95%; } .pub-img { display: none; } }
+  </style>
 </head>
 <body>
-    <h1>Lao Khazic</h1>
+<div class="container">
+  <table class="bio-table" width="100%">
+    <tr>
+      <td width="65%" class="bio-text">
+        <span class="name">Chonghan LIU</span>
+        <p>I am a LLM Algorithm Engineer. My research interests include LLM Inference Optimization, Reinforcement Learning for LLMs, and Multimodal Large Language Models.</p>
+        <p>I received my B.S. in Computer Science from <a href="https://www.nju.edu.cn/">Nanjing University</a> (LAMDA Group). I also studied M.S. in Computer Science at <a href="https://www.ucla.edu/">UCLA</a>.</p>
+        <p class="bio-links">
+          <a href="https://scholar.google.com.hk/citations?user=ntydloAAAAAJ&hl=zh-CN">Google Scholar</a> /
+          <a href="https://github.com/khazic">GitHub</a> /
+          <a href="https://openreview.net/profile?id=~Chonghan_Liu1">OpenReview</a> /
+          <a href="https://dblp.org/pid/277/9934">DBLP</a> /
+          <a href="https://www.linkedin.com/in/khazic-leb-749a10292/">LinkedIn</a>
+        </p>
+      </td>
+      <td width="35%" style="text-align:center;vertical-align:top;padding:10px;">
+        <div style="width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#1a5276,#2e86c1);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:56px;font-weight:bold;font-family:Georgia,serif;">CL</div>
+      </td>
+    </tr>
+  </table>
+  <div class="section-heading">Publications</div>
+  <table width="100%">
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">d²Cache</div></td><td><span class="pub-title">d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching</span><br><span class="pub-authors">Yuchu Jiang, Yue Cai, Xiangzhong Luo, Jiale Fu, Jiarui Wang, <strong>Chonghan Liu</strong>, Xu Yang</span><br><span class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=SjInfpK5RM">[paper]</a> <a href="https://github.com/Kamichanw/d2Cache">[code]</a></span><br><span class="pub-desc">We introduce a training-free approximate KV cache framework for accelerating diffusion-based LLM inference.</span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">Flatter Tokens</div></td><td><span class="pub-title">Flatter Tokens are More Valuable for Speculative Draft Model Training</span><br><span class="pub-authors">Jiaming Fan, Cao Daming, Xiangzhong Luo, Jiale Fu, <strong>Chonghan Liu</strong>, Xu Yang</span><br><span class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=wgGJE6Z1B3">[paper]</a></span><br><span class="pub-desc">We study token-level distribution properties for training more effective speculative draft models.</span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">AdaptiveStep</div></td><td><span class="pub-title">AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence</span><br><span class="pub-authors">Yuliang Liu, Junjie Lu, Chaofeng Qu, Zhaoling Chen, Zefan Cai, Jason Klein Liu, <strong>Chonghan Liu</strong>, Yunhui Xia, Li Zhao, Jiang Bian, Chuheng Zhang, Wei Shen, Zhouhan Lin</span><br><span class="pub-venue">The Forty-second International Conference on Machine Learning (ICML), 2025</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=ViRFgwVjk0">[paper]</a></span><br><span class="pub-desc">We propose a method to automatically divide reasoning steps based on model confidence for improved LLM reasoning.</span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">ST-Think</div></td><td><span class="pub-title">ST-Think: How Multimodal Large Language Models Reason About 4D Worlds from Ego-Centric Videos</span><br><span class="pub-authors">Peiran Wu, Yunze Liu, <strong>Chonghan Liu</strong>, Miao Liu, Junxiao Shen</span><br><span class="pub-venue"><em>arXiv preprint</em>, 2025</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=oDZH8hzs0v">[paper]</a></span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">Ariadne</div></td><td><span class="pub-title">Ariadne: Advancing Real-world Path-finding Capabilities of VLMs via Difficulty-aware Reinforcement Learning</span><br><span class="pub-authors">Minghe Shen, Zhuo Zhi, <strong>Chonghan Liu</strong>, Shuo Xing, Zhengzhong Tu, Che Liu</span><br><span class="pub-venue"><em>arXiv preprint</em>, 2025</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=CGLlZsWWhj">[paper]</a></span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">LLM Ensemble</div></td><td><span class="pub-title">Rethinking LLM Ensembling from the Perspective of Mixture Models</span><br><span class="pub-authors">Jiale Fu, Yuchu Jiang, PeiJun Wu, <strong>Chonghan Liu</strong>, Joey Tianyi Zhou, Xu Yang</span><br><span class="pub-venue"><em>arXiv preprint</em>, 2025</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=R2FH4wrVk2">[paper]</a></span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">Low-Resource</div></td><td><span class="pub-title">Extending Foundation Models to Low-Resource Languages: Vocabulary Expansion and Policy Optimization</span><br><span class="pub-authors"><strong>Chonghan Liu</strong>, Yimin Du, Qi An, Xin He, Zhaicunqi, Fei Tan, Weijia Lin, Gongxiaochun, Yongchao Deng, Shousheng Jia, Xiangzheng Zhang</span><br><span class="pub-venue"><em>arXiv preprint</em>, 2025</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=2pMmCDYPQi">[paper]</a></span></td></tr>
+  </table>
+  <div class="footer">Last updated: May 2026<br>Thanks <a href="https://jonbarron.info/">Jon Barron</a> for the wonderful layout!</div>
+</div>
 </body>
 </html>
