@@ -30,6 +30,15 @@
     .bio-links a { margin-right: 5px; }
     .placeholder-img { width: 160px; height: 100px; background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 12px; font-family: Arial, sans-serif; }
     .spotlight { display: inline-block; font-size: 11px; font-weight: bold; color: #666; margin-left: 6px; vertical-align: middle; }
+    .oss-group { padding: 14px 10px 4px 10px; }
+    .oss-repo { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
+    .oss-repo a { color: #333; }
+    .oss-repo a:hover { color: #f09228; }
+    .oss-repo .repo-desc { font-weight: normal; font-size: 14px; color: #666; margin-left: 6px; }
+    .oss-item { font-size: 14px; padding: 3px 0 3px 16px; line-height: 1.5; }
+    .oss-badge { display: inline-block; font-size: 11px; padding: 1px 5px; border-radius: 3px; margin-right: 5px; font-family: Arial, sans-serif; vertical-align: middle; }
+    .badge-merged { background: #e6f4ea; color: #2d7a3a; }
+    .badge-open { background: #e8f0fe; color: #1a56c4; }
     @media screen and (max-width: 860px) { .container { width: 95%; } .pub-img { display: none; } }
   </style>
 </head>
@@ -38,7 +47,7 @@
   <table class="bio-table" width="100%">
     <tr>
       <td width="65%" class="bio-text">
-        <span class="name">Chonghan LIU</span>
+        <span class="name">Chonghan Liu</span>
         <p>I am a LLM Algorithm Engineer. My research interests include LLM Inference Optimization, Reinforcement Learning for LLMs, and Multimodal Large Language Models.</p>
         <p>I received my B.S. in Computer Science from <a href="https://www.nju.edu.cn/">Nanjing University</a> (LAMDA Group). I also studied M.S. in Computer Science at <a href="https://www.ucla.edu/">UCLA</a>.</p>
         <p class="bio-links">
@@ -67,6 +76,41 @@
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/unicorn.png" alt="Unicorn" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><span class="pub-title">Unicorn: Text-only Data Synthesis for Vision Language Model Training</span><br><span class="pub-authors">Xun Yu, Peida Ding, Wenzhuo Zhang, Shanshan Huang, Siyuan Gao, Chaofeng Qin, Kaiwu Wu, Zhifan Fan, Zheqi Qiao, ...</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2503.22655, 2025</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2503.22655">[paper]</a></span></td></tr>
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/hi_transpa.png" alt="HI-TransPA" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><span class="pub-title">HI-TransPA: Hearing Impairments Translation Personal Assistant</span><br><span class="pub-authors">Zhiyu Ma, Siyuan Gan, Jiazhao Zhao, Xingyuan Li, Qingrui Pan, Pingchuan Wang, Mingpan Pan, Yanming Mo, Jiantao Cheng, ...</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2511.09915, 2025</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2511.09915">[paper]</a></span></td></tr>
   </table>
+  <div class="section-heading">Open Source</div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/verl-project/verl">verl-project/verl</a><span class="repo-desc">— RLHF training framework</span></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5743">Fix numpy types in MultiTurnSFTDataset to avoid serialization errors</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5612">Fix chat_template sync from tokenizer to processor for multimodal models</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/4854">Fix global_tokens and total_tokens metrics always showing 0.0 in SFT trainer</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5681">Feat: ExceptionDumpManager to dump DataProto on trainer exceptions</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5777">Fix: use key intersection in collate_variable_batch to handle optional keys</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5775">Fix: ddp_config in vanilla mbridge path when use_distributed_optimizer=False</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/hiyouga/LLaMA-Factory">hiyouga/LLaMA-Factory</a><span class="repo-desc">— LLM fine-tuning framework</span></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/4961">Add TRL PPO implementation reference in documentation</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/3490">Add second ShareGPT conversation format support</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/3261">Add example configs for single-GPU full-parameter training</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/langgenius/dify">langgenius/dify</a><span class="repo-desc">— LLM application platform</span></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/langgenius/dify/pull/3309">Add missing workflow i18n keys</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/langgenius/dify/pull/3358">Optimize frontend Docker build speed via mirror registry</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/OpenRLHF/OpenRLHF-M">OpenRLHF/OpenRLHF-M</a><span class="repo-desc">— Multimodal RLHF framework</span></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/OpenRLHF/OpenRLHF-M/pull/3">Add Qwen model example training script</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/google-research/metricx">google-research/metricx</a><span class="repo-desc">— Machine translation quality metric</span></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/google-research/metricx/pull/18">Fix prediction output readability and simplify inference installation</a></div>
+  </div>
+
   <div class="footer">Last updated: May 2026</div>
 </div>
 </body>
