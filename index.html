@@ -79,36 +79,31 @@
   <div class="section-heading">Open Source</div>
 
   <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/NVIDIA-NeMo/Automodel">NVIDIA-NeMo/Automodel</a><span class="repo-desc">— PyTorch-native LLM/VLM training framework</span></div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-bottom:4px;">Model support</div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2039">Add DeepSeek V4 Flash (MLA + MoE) training support</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2072">Add Hy3-preview (HYV3) SFT support</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2191">Add Multi-Token Prediction (MTP) training support for DeepSeek V4</a></div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-top:8px;padding-bottom:4px;">Distributed training</div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1904">Add TP+PP support for Gemma4 VLM with tied lm_head fix</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1914">Add Context Parallelism support for Gemma4 dense and MoE VLM</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2011">Inject TransformerEngine DotProductAttention into HF models</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2201">Fix MoE routing scores and attention softmax precision in DeepSeek V4</a></div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-top:8px;padding-bottom:4px;">VLM training correctness</div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1985">Fix zero label tokens causing NaN loss in VLM training</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1941">Fix activation checkpointing silently skipped on all registered VLMs</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2059">Fix multi-image token expansion in pipeline parallelism</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2172">Fix mRoPE forwarding for neat packing in VLM training</a></div>
+  </div>
+
+  <div class="oss-group">
     <div class="oss-repo"><a href="https://github.com/verl-project/verl">verl-project/verl</a><span class="repo-desc">— RLHF training framework</span></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5743">Fix numpy types in MultiTurnSFTDataset to avoid serialization errors</a></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5612">Fix chat_template sync from tokenizer to processor for multimodal models</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/6030">Add Gemma4 FSDP SFT training support</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5775">Fix use_distributed_optimizer not propagated to ddp_config in mbridge path</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5743">Fix numpy type serialization errors in MultiTurnSFTDataset</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/5612">Fix chat_template sync for multimodal models in config initialization</a></div>
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/verl-project/verl/pull/4854">Fix global_tokens and total_tokens metrics always showing 0.0 in SFT trainer</a></div>
-    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5681">Feat: ExceptionDumpManager to dump DataProto on trainer exceptions</a></div>
-    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5777">Fix: use key intersection in collate_variable_batch to handle optional keys</a></div>
-    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5775">Fix: ddp_config in vanilla mbridge path when use_distributed_optimizer=False</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/hiyouga/LLaMA-Factory">hiyouga/LLaMA-Factory</a><span class="repo-desc">— LLM fine-tuning framework</span></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/4961">Add TRL PPO implementation reference in documentation</a></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/3490">Add second ShareGPT conversation format support</a></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/3261">Add example configs for single-GPU full-parameter training</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/langgenius/dify">langgenius/dify</a><span class="repo-desc">— LLM application platform</span></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/langgenius/dify/pull/3309">Add missing workflow i18n keys</a></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/langgenius/dify/pull/3358">Optimize frontend Docker build speed via mirror registry</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/OpenRLHF/OpenRLHF-M">OpenRLHF/OpenRLHF-M</a><span class="repo-desc">— Multimodal RLHF framework</span></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/OpenRLHF/OpenRLHF-M/pull/3">Add Qwen model example training script</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/google-research/metricx">google-research/metricx</a><span class="repo-desc">— Machine translation quality metric</span></div>
-    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/google-research/metricx/pull/18">Fix prediction output readability and simplify inference installation</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/verl-project/verl/pull/5681">Add ExceptionDumpManager to preserve DataProto on trainer crash</a></div>
   </div>
 
   <div class="footer">Last updated: May 2026</div>
