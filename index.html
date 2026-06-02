@@ -44,9 +44,40 @@
     .badge-merged { background: #e6f4ea; color: #2d7a3a; }
     .badge-open { background: #e8f0fe; color: #1a56c4; }
     @media screen and (max-width: 860px) { .container { width: 95%; } .pub-img { display: none; } }
+
+    /* Theme toggle button */
+    .theme-toggle { position: fixed; top: 16px; right: 16px; z-index: 100; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #ccc; background: #fff; color: #333; font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s, color .2s, border-color .2s; }
+    .theme-toggle:hover { border-color: #f09228; color: #f09228; }
+
+    /* Dark theme */
+    body.dark { background-color: #181818; color: #c9c9c9; }
+    body.dark a { color: #6ea8fe; }
+    body.dark a:hover { color: #f09228; }
+    body.dark strong { color: #e8e8e8; }
+    body.dark .name { color: #f0f0f0; }
+    body.dark .section-heading { border-bottom-color: #444; color: #f0f0f0; }
+    body.dark .pub-row td { border-bottom-color: #2c2c2c; }
+    body.dark .pub-venue { color: #b0b0b0; }
+    body.dark .pub-desc { color: #9a9a9a; }
+    body.dark .oss-repo a { color: #e0e0e0; }
+    body.dark .oss-repo a:hover { color: #f09228; }
+    body.dark .oss-repo .repo-desc { color: #999; }
+    body.dark .footer { border-top-color: #333; color: #888; }
+    body.dark .footer a { color: #888; }
+    body.dark .footer a:hover { color: #6ea8fe; }
+    body.dark .placeholder-img { background: linear-gradient(135deg, #2a2a2a 0%, #383838 100%); color: #777; }
+    body.dark .badge-merged { background: #1e3a28; color: #6fcf8a; }
+    body.dark .badge-open { background: #1e2d4a; color: #6ea8fe; }
+    body.dark .theme-toggle { background: #242424; color: #e0e0e0; border-color: #444; }
+    body.dark .theme-toggle:hover { border-color: #f09228; color: #f09228; }
   </style>
 </head>
 <body>
+<script>
+  // Apply saved theme before paint to avoid a flash of the wrong background.
+  if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+</script>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
 <div class="container">
   <table class="bio-table" width="100%">
     <tr>
@@ -74,6 +105,7 @@
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/d2cache.png" alt="d²Cache" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=SjInfpK5RM">d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching <span class="poster">Poster</span></a><br><span class="pub-authors">Yuchu Jiang, Yue Cai, Xiangzhong Luo, Jiale Fu, Jiarui Wang, <strong>Chonghan Liu</strong>, Xu Yang</span><br><span class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=SjInfpK5RM">[paper]</a> <a href="https://github.com/Kamichanw/d2Cache">[code]</a></span></td></tr>
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/flatter_tokens.png" alt="Flatter Tokens" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=wgGJE6Z1B3">Flatter Tokens are More Valuable for Speculative Draft Model Training <span class="poster">Poster</span></a><br><span class="pub-authors">Jiaming Fan, Cao Daming, Xiangzhong Luo, Jiale Fu, <strong>Chonghan Liu</strong>, Xu Yang</span><br><span class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=wgGJE6Z1B3">[paper]</a></span></td></tr>
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/adaptivestep.png" alt="AdaptiveStep" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=ViRFgwVjk0">AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence <span class="poster">Poster</span></a><br><span class="pub-authors">Yuliang Liu, Junjie Lu, Zhaoling Chen, Chaofeng Qu, Jason Klein Liu, <strong>Chonghan Liu</strong>, Zefan Cai, Yunhui Xia, Li Zhao, Jiang Bian, Chuheng Zhang, Wei Shen, Zhouhan Lin</span><br><span class="pub-venue">The Forty-second International Conference on Machine Learning (ICML), 2025</span><br><span class="pub-links"><a href="https://openreview.net/forum?id=ViRFgwVjk0">[paper]</a></span></td></tr>
+    <tr class="pub-row"><td class="pub-img"><div class="placeholder-img">CAPF</div></td><td><a class="pub-title" href="https://arxiv.org/abs/2606.01830">CAPF: Guiding Search-Agent Rollouts with Credit-Attenuated Privileged Feedback</a><br><span class="pub-authors">Bin Chen, Xinye Liao, Yiming Liu, Xin Liao, <strong>Chonghan Liu</strong></span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2606.01830, 2026</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2606.01830">[paper]</a></span></td></tr>
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/modality_gap.png" alt="Modality Gap" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2602.07026">Modality Gap-Driven Subspace Alignment Training Paradigm For Multimodal Large Language Models</a><br><span class="pub-authors">Xun Yu, Yixin Xin, Wenzhuo Zhang, <strong>Chonghan Liu</strong>, Hao Zhao, Xianghao Hu, Xiaoyu Yu, Zheqi Qiao, Haitao Tang, Xu Yang, ...</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2602.07026, 2026</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2602.07026">[paper]</a></span></td></tr>
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/vepo.png" alt="VEPO" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2603.19152">VEPO: Variable Entropy Policy Optimization for Low-Resource Language Foundation Models</a><br><span class="pub-authors"><strong>Chonghan Liu</strong>, Yimin Du, Qi An, Xin He, Cunqi Zhai, Fei Tan, Weijia Lin, Xiaochun Gong, Yongchao Deng, Shousheng Jia, ...</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2603.19152, 2026</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2603.19152">[paper]</a></span></td></tr>
     <tr class="pub-row"><td class="pub-img"><img src="images/papers/mirage.png" alt="Mirage" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2505.10604">Mirage: A Multi-modal Benchmark for Spatial Perception, Reasoning, and Intelligence</a><br><span class="pub-authors"><strong>Chonghan Liu</strong>, Haoran Wang, Frank Henry, Peng Miao, Yifan Zhang, Yue Zhao, Peiran Wu</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2505.10604, 2025</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2505.10604">[paper]</a></span></td></tr>
@@ -137,5 +169,17 @@
 
   <div class="footer">Last updated: June 2026</div>
 </div>
+<script>
+  (function () {
+    var btn = document.getElementById('themeToggle');
+    function sync() { btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙'; }
+    btn.addEventListener('click', function () {
+      var dark = document.body.classList.toggle('dark');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      sync();
+    });
+    sync();
+  })();
+</script>
 </body>
 </html>
