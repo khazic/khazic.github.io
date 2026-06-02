@@ -62,7 +62,7 @@
           <a href="mailto:khazzz1c@gmail.com">Email</a>
         </p>
       </td>
-      <td width="35%" style="text-align:center;vertical-align:top;padding:10px;">
+      <td width="35%" style="text-align:center;vertical-align:top;padding:40px 10px 10px 10px;">
         <img src="https://avatars.githubusercontent.com/u/83893956?v=4" width="180" height="180" style="border-radius:50%;object-fit:cover;" alt="Chonghan Liu">
       </td>
     </tr>
@@ -84,10 +84,19 @@
 
   <div class="oss-group">
     <div class="oss-repo"><a href="https://github.com/NVIDIA-NeMo/Automodel">NVIDIA-NeMo/Automodel</a><span class="repo-desc">— PyTorch-native LLM/VLM training framework</span></div>
-    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-bottom:4px;">Model support</div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-bottom:4px;">Speculative decoding (EAGLE)</div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2224">Add Llama EAGLE-3 draft training recipe</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2254">Add FlashAttention-2 backend for EAGLE-3 draft attention</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2317">Add Qwen3-MoE target support to EAGLE-1/2/3</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2307">Add offline dataset regeneration with EAGLE target model</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2294">Add SGLang serve helper for trained EAGLE drafters</a></div>
+    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2376">Add P-EAGLE parallel-drafting training for EAGLE-3 drafts</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2308">Add EAGLE speculative-decoding end-to-end tutorial</a></div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-top:8px;padding-bottom:4px;">Model support</div>
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2039">Add DeepSeek V4 Flash training support</a></div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2072">Add Hy3-preview (HYV3) SFT support</a></div>
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2191">Add Multi-Token Prediction (MTP) training support for DeepSeek V4</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2072">Add Hy3-preview (HYV3) SFT support</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2320">Add Hy-MT2-30B-A3B SFT support</a></div>
     <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-top:8px;padding-bottom:4px;">Distributed training</div>
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1904">Add TP+PP support for Gemma4 VLM with tied lm_head fix</a></div>
     <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1914">Add Context Parallelism support for Gemma4 dense and MoE VLM</a></div>
@@ -98,6 +107,13 @@
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1941">Fix activation checkpointing silently skipped on all registered VLMs</a></div>
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2059">Fix multi-image token expansion in pipeline parallelism</a></div>
     <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2172">Fix mRoPE forwarding for neat packing in VLM training</a></div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-top:8px;padding-bottom:4px;">Knowledge distillation</div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2205">Add VLM knowledge distillation recipe with chunked KD loss</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2211">Support teacher-model offload for VLM knowledge distillation</a></div>
+    <div class="oss-item" style="color:#888;font-size:13px;padding-left:16px;padding-top:8px;padding-bottom:4px;">Agent / tool-calling SFT</div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2321">Add multi-turn agent SFT dataset adapter</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2338">Add tool-call accuracy evaluator for agent SFT validation</a></div>
+    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2364">Add multi-turn agent (tool-calling) SFT tutorial</a></div>
   </div>
 
   <div class="oss-group">
@@ -119,7 +135,7 @@
     <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/google-research/metricx/pull/18">google-research/metricx</a> — Fix prediction output readability and simplify inference installation</div>
   </div>
 
-  <div class="footer">Last updated: May 2026</div>
+  <div class="footer">Last updated: June 2026</div>
 </div>
 </body>
 </html>
