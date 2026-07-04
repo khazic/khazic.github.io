@@ -39,10 +39,6 @@
     .oss-repo a { color: #333; }
     .oss-repo a:hover { color: #f09228; }
     .oss-repo .repo-desc { font-weight: normal; font-size: 14px; color: #666; margin-left: 6px; }
-    .oss-item { font-size: 14px; padding: 3px 0 3px 16px; line-height: 1.5; }
-    .oss-badge { display: inline-block; font-size: 11px; padding: 1px 5px; border-radius: 3px; margin-right: 5px; font-family: Arial, sans-serif; vertical-align: middle; }
-    .badge-merged { background: #e6f4ea; color: #2d7a3a; }
-    .badge-open { background: #e8f0fe; color: #1a56c4; }
     .oss-summary { font-size: 14px; padding: 4px 0 6px 16px; line-height: 1.6; }
     @media screen and (max-width: 860px) { .container { width: 95%; } .pub-img { display: none; } }
 
@@ -67,8 +63,6 @@
     body.dark .footer a { color: #888; }
     body.dark .footer a:hover { color: #6ea8fe; }
     body.dark .placeholder-img { background: linear-gradient(135deg, #2a2a2a 0%, #383838 100%); color: #777; }
-    body.dark .badge-merged { background: #1e3a28; color: #6fcf8a; }
-    body.dark .badge-open { background: #1e2d4a; color: #6ea8fe; }
     body.dark .theme-toggle { background: #242424; color: #e0e0e0; border-color: #444; }
     body.dark .theme-toggle:hover { border-color: #f09228; color: #f09228; }
   </style>
@@ -126,16 +120,51 @@
   </div>
 
   <div class="oss-group">
-    <div class="oss-repo" style="color:#666;font-weight:normal;font-size:14px;">Other contributions</div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/4961">hiyouga/LLaMA-Factory</a> — Add TRL PPO implementation reference</div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/hiyouga/LlamaFactory/pull/3490">hiyouga/LLaMA-Factory</a> — Add second ShareGPT conversation format support</div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/langgenius/dify/pull/3309">langgenius/dify</a> — Add missing workflow i18n keys</div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/OpenRLHF/OpenRLHF-M/pull/3">OpenRLHF/OpenRLHF-M</a> — Add Qwen model example training script</div>
-    <div class="oss-item"><span class="oss-badge badge-open">open</span><a href="https://github.com/google-research/metricx/pull/18">google-research/metricx</a> — Fix prediction output readability and simplify inference installation</div>
-    <div class="oss-item"><span class="oss-badge badge-merged">merged</span><a href="https://github.com/mercurystraw/heat/pull/1">mercurystraw/heat</a> — Fix token_type_ids misdetected as a multimodal field in iLLaDA rollout</div>
+    <div class="oss-repo"><a href="https://github.com/hiyouga/LLaMA-Factory">hiyouga/LLaMA-Factory</a><span class="repo-desc">— Unified efficient fine-tuning framework for 100+ LLMs & VLMs</span></div>
+    <div class="oss-summary">Added <a href="https://github.com/hiyouga/LLaMA-Factory/pull/3490">second ShareGPT conversation format support</a> and a <a href="https://github.com/hiyouga/LLaMA-Factory/pull/3261">single-GPU full-parameter batch prediction example</a>, plus a <a href="https://github.com/hiyouga/LLaMA-Factory/pull/4961">TRL PPOv2 implementation reference</a></div>
   </div>
 
-  <div class="footer">Last updated: June 2026</div>
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/chatchat-space/Langchain-Chatchat">chatchat-space/Langchain-Chatchat</a><span class="repo-desc">— RAG & agent app framework over local LLMs</span></div>
+    <div class="oss-summary">Built the pluggable <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3311">model-provider callback/validator architecture</a> and its <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3523">core provider/model manager</a>, including <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3304">Xinference integration</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/langgenius/dify">langgenius/dify</a><span class="repo-desc">— Agentic workflow / LLM app platform</span></div>
+    <div class="oss-summary">Added <a href="https://github.com/langgenius/dify/pull/3309">missing workflow i18n keys</a> and <a href="https://github.com/langgenius/dify/pull/3358">docs for speeding up the front-end Docker build via a China mirror</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/FlagOpen/FlagEmbedding">FlagOpen/FlagEmbedding</a><span class="repo-desc">— Retrieval and retrieval-augmented LLM toolkit</span></div>
+    <div class="oss-summary">Documented the <a href="https://github.com/FlagOpen/FlagEmbedding/pull/672">save_steps checkpoint interval</a> and proposed <a href="https://github.com/FlagOpen/FlagEmbedding/pull/687">wandb logging support</a> for the finetuning scripts</div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/OpenRLHF/OpenRLHF-M">OpenRLHF/OpenRLHF-M</a><span class="repo-desc">— RLHF training framework for multimodal models</span></div>
+    <div class="oss-summary">Added a <a href="https://github.com/OpenRLHF/OpenRLHF-M/pull/3">Qwen model example training script</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/OpenRLHF/OpenRLHF">OpenRLHF/OpenRLHF</a><span class="repo-desc">— Agentic RL training framework</span></div>
+    <div class="oss-summary">Contributed the <a href="https://github.com/OpenRLHF/OpenRLHF/pull/261">Chinese README translation</a></div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/zai-org/GLM-4">zai-org/GLM-4</a><span class="repo-desc">— GLM-4 model & serving code</span></div>
+    <div class="oss-summary">Fixed the <a href="https://github.com/zai-org/GLM-4/pull/9">vLLM GPU memory utilization setting</a> in the OpenAI-compatible serving script</div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/mercurystraw/heat">mercurystraw/heat</a><span class="repo-desc">— iLLaDA training framework</span></div>
+    <div class="oss-summary">Fixed <a href="https://github.com/mercurystraw/heat/pull/1">token_type_ids being misdetected as a multimodal field</a> in iLLaDA rollout</div>
+  </div>
+
+  <div class="oss-group">
+    <div class="oss-repo"><a href="https://github.com/google-research/metricx">google-research/metricx</a><span class="repo-desc">— MetricX translation quality metric</span></div>
+    <div class="oss-summary">Fixed prediction output readability and simplified inference installation (<a href="https://github.com/google-research/metricx/pull/18">open</a>)</div>
+  </div>
+
+  <div class="footer">Last updated: July 2026</div>
 </div>
 <script>
   (function () {
