@@ -1,168 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Chonghan Liu</title>
+  <meta name="description" content="Chonghan Liu, LLM algorithm engineer working on inference optimization, reinforcement learning for LLMs, and multimodal models.">
+  <link rel="canonical" href="https://khazic.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://khazic.github.io/">
+  <meta property="og:title" content="Chonghan Liu">
+  <meta property="og:description" content="LLM algorithm engineer working on inference optimization, reinforcement learning for LLMs, and multimodal models.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/83893956?v=4">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@Chonghan_Liu">
   <link rel="icon" type="image/jpeg" href="https://avatars.githubusercontent.com/u/83893956?v=4">
-  <link rel="shortcut icon" type="image/jpeg" href="https://avatars.githubusercontent.com/u/83893956?v=4">
   <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/83893956?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap">
   <style>
-    body { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 16px; background-color: #fdfdfd; color: #333; margin: 0; padding: 0; }
-    a { color: #1772d0; text-decoration: none; }
-    a:hover { color: #f09228; text-decoration: none; }
-    strong { font-weight: bold; }
-    table { border: 0; border-spacing: 0; border-collapse: collapse; }
-    td { padding: 0; }
-    .container { width: 800px; margin: 0 auto; padding: 20px 0; }
-    .bio-table td { padding: 10px; }
-    .section-heading { padding: 20px 10px 5px 10px; font-size: 22px; font-weight: bold; border-bottom: 1px solid #999; width: 100%; }
-    .pub-row td { padding: 20px 10px; vertical-align: top; border-bottom: 1px solid #eee; }
-    .pub-img { width: 160px; min-width: 160px; }
-    .pub-title { font-size: 16px; font-weight: bold; }
-    .pub-venue { font-style: italic; }
-    .pub-authors { font-size: 15px; }
-    .pub-desc { font-size: 14px; color: #555; }
-    .pub-links a { font-size: 14px; margin-right: 8px; }
-    .footer { text-align: center; padding: 20px 0; color: #999; font-size: 13px; border-top: 1px solid #ddd; margin-top: 30px; }
-    .footer a { color: #999; }
-    .footer a:hover { color: #1772d0; }
-    .name { font-size: 28px; font-weight: bold; }
-    .bio-text { font-size: 15px; line-height: 1.6; }
-    .bio-links { font-size: 15px; }
-    .bio-links a { margin-right: 5px; }
-    .placeholder-img { width: 160px; height: 100px; background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 12px; font-family: Arial, sans-serif; }
-    .spotlight { font-size: 12px; font-weight: normal; color: #888; margin-left: 8px; }
-    .poster { font-size: 12px; font-weight: normal; color: #888; margin-left: 8px; }
-    .oss-group { padding: 14px 10px 4px 10px; }
-    .oss-repo { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
-    .oss-repo a { color: #333; }
-    .oss-repo a:hover { color: #f09228; }
-    .oss-repo .repo-desc { font-weight: normal; font-size: 14px; color: #666; margin-left: 6px; }
-    .oss-summary { font-size: 14px; padding: 4px 0 6px 16px; line-height: 1.6; }
-    @media screen and (max-width: 860px) { .container { width: 95%; } .pub-img { display: none; } }
+    :root {
+      --bg: #ffffff;
+      --surface: #f6f7f9;
+      --title: #0a0a0b;
+      --text: #2b2d31;
+      --text-muted: #8a8f98;
+      --border: #ebedf0;
+      --blue: #1f4fff;
+      --blue-soft: rgba(31, 79, 255, .28);
+      --green: #b8ff2e;
+      --marker: rgba(184, 255, 46, .75);
+      --bullet: #c4c8ce;
+      --guideline: #eceef1;
+      --img-filter: none;
+      --font-sans: "Inter", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+      --measure: 760px;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0b0c0e;
+        --surface: #15171b;
+        --title: #f4f5f6;
+        --text: #c9ccd1;
+        --text-muted: #7c828c;
+        --border: #23262b;
+        --blue: #7b93ff;
+        --blue-soft: rgba(123, 147, 255, .35);
+        --marker: rgba(184, 255, 46, .3);
+        --bullet: #4a4f57;
+        --guideline: #22252a;
+        --img-filter: brightness(.9);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0b0c0e;
+      --surface: #15171b;
+      --title: #f4f5f6;
+      --text: #c9ccd1;
+      --text-muted: #7c828c;
+      --border: #23262b;
+      --blue: #7b93ff;
+      --blue-soft: rgba(123, 147, 255, .35);
+      --marker: rgba(184, 255, 46, .3);
+      --bullet: #4a4f57;
+      --guideline: #22252a;
+      --img-filter: brightness(.9);
+    }
 
-    /* Theme toggle button */
-    .theme-toggle { position: fixed; top: 16px; right: 16px; z-index: 100; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #ccc; background: #fff; color: #333; font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s, color .2s, border-color .2s; }
-    .theme-toggle:hover { border-color: #f09228; color: #f09228; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      font-feature-settings: "cv11", "ss01";
+      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; height: auto; filter: var(--img-filter); }
+    a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-decoration-color: var(--blue-soft);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .2em;
+      transition: text-decoration-color .15s;
+    }
+    a:hover { text-decoration-color: currentColor; }
+    strong { font-weight: 600; color: var(--title); }
+    .mono { font-family: var(--font-mono); font-size: .85em; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+    .mark { background: linear-gradient(transparent 58%, var(--marker) 58%, var(--marker) 92%, transparent 92%); color: inherit; }
+    ::selection { background: var(--green); color: #0a0a0b; }
 
-    /* Dark theme */
-    body.dark { background-color: #181818; color: #c9c9c9; }
-    body.dark a { color: #6ea8fe; }
-    body.dark a:hover { color: #f09228; }
-    body.dark strong { color: #e8e8e8; }
-    body.dark .name { color: #f0f0f0; }
-    body.dark .section-heading { border-bottom-color: #444; color: #f0f0f0; }
-    body.dark .pub-row td { border-bottom-color: #2c2c2c; }
-    body.dark .pub-venue { color: #b0b0b0; }
-    body.dark .pub-desc { color: #9a9a9a; }
-    body.dark .oss-repo a { color: #e0e0e0; }
-    body.dark .oss-repo a:hover { color: #f09228; }
-    body.dark .oss-repo .repo-desc { color: #999; }
-    body.dark .footer { border-top-color: #333; color: #888; }
-    body.dark .footer a { color: #888; }
-    body.dark .footer a:hover { color: #6ea8fe; }
-    body.dark .placeholder-img { background: linear-gradient(135deg, #2a2a2a 0%, #383838 100%); color: #777; }
-    body.dark .theme-toggle { background: #242424; color: #e0e0e0; border-color: #444; }
-    body.dark .theme-toggle:hover { border-color: #f09228; color: #f09228; }
+    /* Layout */
+    .app { display: grid; grid-template-columns: 220px minmax(0, 1fr); max-width: 1120px; margin: 0 auto; min-height: 100vh; }
+    .page { display: flex; flex-direction: column; }
+    main { flex: 1; width: 100%; max-width: var(--measure); margin: 0 auto; padding: 3.5rem 2rem 4rem; }
+    footer { max-width: var(--measure); margin: 0 auto; padding: 2rem 1.25rem 3rem; color: var(--text-muted); font-size: .85rem; }
+
+    /* Sidebar */
+    .sidebar { position: sticky; top: 0; align-self: start; display: flex; flex-direction: column; gap: 1.75rem; padding: 3.4rem 0 2rem 2.5rem; font-size: .9rem; }
+    .avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin: 0; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+    .brand { display: flex; align-items: center; gap: .55rem; color: var(--title); font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; text-decoration: none; }
+    .square { width: .7rem; height: .7rem; border-radius: 2px; background: var(--green); box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); flex: none; }
+    .nav, .series { display: flex; flex-direction: column; gap: .15rem; }
+    .sidebar a { color: var(--text); text-decoration: none; }
+    .nav a, .series a { padding: .15rem 0 .15rem .75rem; border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+    .nav a:hover, .series a:hover { color: var(--blue); }
+    .nav a[aria-current="page"] { color: var(--title); font-weight: 600; border-left-color: var(--blue); }
+    .series h2 { margin: 0 0 .25rem; padding-left: .75rem; font-size: .72rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; line-height: 1.7; }
+    .count { margin-left: .35rem; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; font-variant-numeric: tabular-nums; }
+    .theme-toggle { align-self: flex-start; margin: 0; padding: .15rem 0 .15rem .75rem; border: 0; border-left: 2px solid transparent; background: none; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; cursor: pointer; }
+    .theme-toggle:hover { color: var(--blue); }
+
+    /* Hero */
+    .hero { padding: 2rem 0 3rem; }
+    .hero h1 { margin: 0; max-width: 12ch; font-size: clamp(2.75rem, 7vw, 4.75rem); font-weight: 800; line-height: 1; letter-spacing: -.045em; color: var(--title); }
+    .byline { margin: 2rem 0 0; max-width: 52ch; color: var(--text-muted); line-height: 1.7; }
+
+    /* Sections */
+    section h2 { display: flex; align-items: baseline; gap: 1rem; margin: 4rem 0 1rem; font-size: 2.25rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--title); }
+    .more { margin-left: auto; font-weight: 400; letter-spacing: -.01em; color: var(--text-muted); text-decoration: none; white-space: nowrap; }
+    .more:hover { color: var(--blue); }
+
+    .outline, .outline ul { list-style: none; padding-left: 0; margin: 0; }
+    .outline > li { position: relative; padding-left: 1.5rem; margin-bottom: 1.4rem; }
+    .outline > li::before { content: ""; position: absolute; left: .5rem; top: calc(.85em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--bullet); }
+    .row { display: flex; align-items: baseline; gap: .25rem 1rem; flex-wrap: wrap; }
+    #publications .row { flex-wrap: nowrap; }
+    #publications .title { flex: 1 1 auto; min-width: 0; }
+    #publications .date { flex: none; }
+    .ref { color: var(--title); font-weight: 600; text-decoration: none; }
+    .ref:hover { color: var(--blue); }
+    .date { margin-left: auto; color: var(--text-muted); white-space: nowrap; }
+    .tag { color: var(--text-muted); }
+    .muted, .description { color: var(--text-muted); font-size: .9rem; }
+    .description { margin: .1rem 0 0; line-height: 1.6; }
+    .description strong { color: var(--text); }
+    .links { margin: .15rem 0 0; }
+    .links a { margin-right: .75rem; text-decoration: none; color: var(--text-muted); }
+    .links a:hover { color: var(--blue); }
+
+    .numbered { margin: .4rem 0 0 .6875rem !important; padding-left: .9rem !important; border-left: 1px solid var(--guideline); counter-reset: item; }
+    .numbered > li { position: relative; padding-left: 1.5rem; margin-bottom: .55rem; font-size: .95rem; line-height: 1.6; counter-increment: item; }
+    .numbered > li::before { content: counter(item, decimal-leading-zero); position: absolute; top: 0; left: -.1rem; color: var(--text-muted); font-family: var(--font-mono); font-size: .75em; line-height: 2.1; }
+
+    @media (max-width: 960px) {
+      .app { display: block; }
+      .sidebar { position: static; flex-direction: row; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: .9rem 1rem; border-bottom: 1px solid var(--border); }
+      .avatar, .series { display: none; }
+      .brand { margin-right: auto; }
+      .nav { order: 3; width: 100%; flex-direction: row; flex-wrap: wrap; gap: .25rem .9rem; }
+      .nav a { padding: 0; border-left: none; }
+      .theme-toggle { order: 2; padding: 0; border-left: none; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 2rem 1rem 3rem; }
+      footer { padding: 2rem 1rem; }
+      #publications .row { flex-wrap: wrap; }
+      .date { margin-left: 0; width: 100%; }
+    }
   </style>
+  <script>
+    // Apply a saved manual theme before first paint; otherwise follow the system.
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-<script>
-  // Apply saved theme before paint to avoid a flash of the wrong background.
-  if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
-</script>
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
-<div class="container">
-  <table class="bio-table" width="100%">
-    <tr>
-      <td width="65%" class="bio-text">
-        <span class="name">Chonghan Liu</span>
-        <p>I am a LLM Algorithm Engineer. My research interests include LLM Inference Optimization, Reinforcement Learning for LLMs, and Multimodal Large Language Models.</p>
-        <p>I received my B.S. in Computer Science from <a href="https://www.nju.edu.cn/">Nanjing University</a>, and dropped out of the M.S. program at <a href="https://www.ucla.edu/">UCLA</a> to work full-time in AI. I am a collaborator on <a href="https://github.com/hiyouga/LlamaFactory">LLaMA-Factory</a> and an active contributor to <a href="https://github.com/NVIDIA-NeMo/Automodel">NVIDIA-NeMo/Automodel</a>.</p>
-        <p class="bio-links">
-          <a href="https://scholar.google.com/citations?user=ntydloAAAAAJ&hl=zh-CN">Google Scholar</a> /
-          <a href="https://github.com/khazic">GitHub</a> /
-          <a href="https://x.com/Chonghan_Liu">X</a> /
-          <a href="https://www.notion.so/khazzz1c/Khazzz1c-s-Blog-post-151d29780b58801bb2bddd42eb81c73d?source=copy_link">Blog</a> /
-          <a href="mailto:khazzz1c@gmail.com">Email</a>
+<div class="app">
+  <header class="sidebar">
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/83893956?v=4" width="56" height="56" alt="Chonghan Liu">
+    <a href="#top" class="brand"><span class="square"></span>Chonghan Liu</a>
+    <nav class="nav">
+      <a href="#publications" data-spy="publications">Publications</a>
+      <a href="#open-source" data-spy="open-source">Open Source</a>
+      <a href="https://scholar.google.com/citations?user=ntydloAAAAAJ&amp;hl=zh-CN">Scholar</a>
+      <a href="https://github.com/khazic">GitHub</a>
+      <a href="https://x.com/Chonghan_Liu">X</a>
+      <a href="https://www.notion.so/khazzz1c/Khazzz1c-s-Blog-post-151d29780b58801bb2bddd42eb81c73d?source=copy_link">Blog</a>
+      <a href="mailto:khazzz1c@gmail.com">Email</a>
+    </nav>
+    <section class="series">
+      <h2 class="mono">open source</h2>
+      <a href="#automodel">Automodel <span class="count">52</span></a>
+      <a href="#megatron-bridge">Megatron-Bridge <span class="count">10</span></a>
+      <a href="#verl-speco">verl-SpeCo <span class="count">9</span></a>
+      <a href="#llamafactory">LLaMA-Factory <span class="count">8</span></a>
+      <a href="#verl">verl <span class="count">6</span></a>
+      <a href="#langchain-chatchat">Langchain-Chatchat <span class="count">3</span></a>
+      <a href="#speculators">speculators <span class="count">2</span></a>
+    </section>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">dark mode</button>
+  </header>
+
+  <div class="page">
+    <main id="top">
+      <section class="hero">
+        <h1>LLM inference, RL and <span class="mark">multimodal</span> models.</h1>
+        <p class="byline mono">
+          Chonghan Liu, LLM algorithm engineer. B.S. in Computer Science from <a href="https://www.nju.edu.cn/">Nanjing University</a>, left the M.S. program at <a href="https://www.ucla.edu/">UCLA</a> to work full-time in AI.
+          <br>
+          Collaborator on <a href="https://github.com/hiyouga/LlamaFactory">LLaMA-Factory</a>. Contributing to <a href="https://github.com/NVIDIA-NeMo/Automodel">Automodel</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge">Megatron-Bridge</a>, <a href="https://github.com/verl-project/verl">verl</a> &amp; <a href="https://github.com/verl-project/verl-SpeCo">verl-SpeCo</a>.
         </p>
-      </td>
-      <td width="35%" style="text-align:center;vertical-align:top;padding:40px 10px 10px 10px;">
-        <img src="https://avatars.githubusercontent.com/u/83893956?v=4" width="180" height="180" style="border-radius:50%;object-fit:cover;" alt="Chonghan Liu">
-      </td>
-    </tr>
-  </table>
-  <div class="section-heading">Publications <a href="https://scholar.google.com/citations?user=ntydloAAAAAJ&hl=zh-CN" style="font-size:14px;font-weight:normal;margin-left:10px;">[all Papers →]</a></div>
-  <table width="100%">
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/pulse.png" alt="PULSE" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2609.32469">PULSE: Identifying Demonstration-Utility Features with Sparse Autoencoders</a><br><span class="pub-authors">Chenduo Hao, Chuanbao Gao, Pinjun Zeng, Jingze Zhu, <strong>Chonghan Liu</strong>, Zidong Liu, Xu Yang</span><br><span class="pub-venue"><strong>NeurIPS 2026</strong></span><br><span class="pub-links"><a href="https://arxiv.org/abs/2609.32469">[paper]</a> <a href="https://github.com/aohenuo/PULSE">[code]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/lift.png" alt="LIFT" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2609.31140">Can Linguistic Reasoning Vectors Enhance Multimodal Reasoning Ability?</a><br><span class="pub-authors">Ziyi Wang, Li Li, Aolin Zhou, Yankun Shen, <strong>Chonghan Liu</strong>, Shuxia Lin, Xu Yang</span><br><span class="pub-venue"><strong>NeurIPS 2026</strong></span><br><span class="pub-links"><a href="https://arxiv.org/abs/2609.31140">[paper]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/llm_ensemble.png" alt="LLM Ensemble" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=R2FH4wrVk2">Rethinking LLM Ensembling from the Perspective of Mixture Models <span class="spotlight">Spotlight</span></a><br><span class="pub-authors">Jiale Fu, Yuchu Jiang, <strong>Chonghan Liu</strong>, Joey Tianyi Zhou, Xu Yang</span><br><span class="pub-venue"><strong>ICML 2026</strong></span><br><span class="pub-links"><a href="https://openreview.net/forum?id=R2FH4wrVk2">[paper]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/ariadne.png" alt="Ariadne" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=CGLlZsWWhj">Ariadne: A Controllable Framework for Probing and Extending VLM Reasoning Boundaries <span class="poster">Poster</span></a><br><span class="pub-authors">Minghe Shen, Zhuo Zhi, <strong>Chonghan Liu</strong>, Shuo Xing, Zhengzhong Tu, Che Liu</span><br><span class="pub-venue"><strong>ACL Main 2026</strong></span><br><span class="pub-links"><a href="https://openreview.net/forum?id=CGLlZsWWhj">[paper]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/d2cache.png" alt="d²Cache" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=SjInfpK5RM">d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching <span class="poster">Poster</span></a><br><span class="pub-authors">Yuchu Jiang, Yue Cai, Xiangzhong Luo, Jiale Fu, Jiarui Wang, <strong>Chonghan Liu</strong>, Xu Yang</span><br><span class="pub-venue"><strong>ICLR 2026</strong></span><br><span class="pub-links"><a href="https://openreview.net/forum?id=SjInfpK5RM">[paper]</a> <a href="https://github.com/Kamichanw/d2Cache">[code]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/flatter_tokens.png" alt="Flatter Tokens" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=wgGJE6Z1B3">Flatter Tokens are More Valuable for Speculative Draft Model Training <span class="poster">Poster</span></a><br><span class="pub-authors">Jiaming Fan, Cao Daming, Xiangzhong Luo, Jiale Fu, <strong>Chonghan Liu</strong>, Xu Yang</span><br><span class="pub-venue"><strong>ICLR 2026</strong></span><br><span class="pub-links"><a href="https://openreview.net/forum?id=wgGJE6Z1B3">[paper]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/adaptivestep.png" alt="AdaptiveStep" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://openreview.net/forum?id=ViRFgwVjk0">AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence <span class="poster">Poster</span></a><br><span class="pub-authors">Yuliang Liu, Junjie Lu, Zhaoling Chen, Chaofeng Qu, Jason Klein Liu, <strong>Chonghan Liu</strong>, Zefan Cai, Yunhui Xia, Li Zhao, Jiang Bian, Chuheng Zhang, Wei Shen, Zhouhan Lin</span><br><span class="pub-venue"><strong>ICML 2025</strong></span><br><span class="pub-links"><a href="https://openreview.net/forum?id=ViRFgwVjk0">[paper]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/vepo.png" alt="VEPO" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2603.19152">VEPO: Variable Entropy Policy Optimization for Low-Resource Language Foundation Models</a><br><span class="pub-authors"><strong>Chonghan Liu</strong>, Yimin Du, Qi An, Xin He, Cunqi Zhai, Fei Tan, Weijia Lin, Xiaochun Gong, Yongchao Deng, Shousheng Jia, ...</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2603.19152, 2026</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2603.19152">[paper]</a></span></td></tr>
-    <tr class="pub-row"><td class="pub-img"><img src="images/papers/mirage.png" alt="Mirage" style="width:160px;height:100px;object-fit:cover;border-radius:4px;"></td><td><a class="pub-title" href="https://arxiv.org/abs/2505.10604">Mirage: A Multi-modal Benchmark for Spatial Perception, Reasoning, and Intelligence</a><br><span class="pub-authors"><strong>Chonghan Liu</strong>, Haoran Wang, Frank Henry, Peng Miao, Yifan Zhang, Yue Zhao, Peiran Wu</span><br><span class="pub-venue"><em>arXiv preprint</em> arXiv:2505.10604, 2025</span><br><span class="pub-links"><a href="https://arxiv.org/abs/2505.10604">[paper]</a></span></td></tr>
-  </table>
-  <div class="section-heading">Open Source <a href="https://github.com/pulls?q=is%3Apr+author%3Akhazic+archived%3Afalse" style="font-size:14px;font-weight:normal;margin-left:10px;">[all PRs →]</a></div>
+      </section>
 
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/NVIDIA-NeMo/Automodel">NVIDIA-NeMo/Automodel</a><span class="repo-desc">PyTorch-native LLM/VLM training framework</span></div>
-    <div class="oss-summary"><strong>Speculative decoding (EAGLE / DFlash / DSpark / Domino / JetSpec / MSD):</strong> grew this from a single <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2263">Llama EAGLE-1 recipe</a> into Automodel's full draft-model training stack: <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2376">P-EAGLE parallel drafting</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2406">DFlash</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2866">DeepSeek V4 DSpark</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2819">Domino online training</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2867">JetSpec causal parallel drafting</a>, plus a <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2841">vLLM/SGLang serving bridge</a> and an <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2308">end-to-end tutorial</a>. Extended it to <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3286">Kimi K3 EAGLE-3</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3287">DFlash</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3263">DSpark</a> drafts, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3071">Gemma4 targets</a>, and vision-language models through a <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3166">multimodal speculative decoding (MSD) core</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3173">ViSpec VLM draft training</a></div>
-    <div class="oss-summary"><strong>Scaling &amp; evaluation:</strong> added <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3002">sequence packing</a> across EAGLE-1/2, DFlash, DSpark, Domino, and JetSpec; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3356">Ulysses context parallelism for the EAGLE-3 draft</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2963">FP8 draft training and LoRA adaptation</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2953">distributed offline feature precomputation</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3042">on-policy target-logit regeneration</a>; and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3037">simulated and real acceptance-length evaluation</a> with <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2966">multi-dataset benchmark sweeps</a></div>
-    <div class="oss-summary"><strong>Model & MoE support:</strong> added training support for <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2039">DeepSeek V4 Flash</a> (plus <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2191">Multi-Token Prediction</a>) and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3855">DeepSeek V4.1 Flash</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2072">Hy3-preview</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2320">Hy-MT2-30B-A3B</a>; brought Kimi Linear to <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3243">context parallelism with packed sequences</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3246">tensor and sequence parallelism</a>; plus <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2797">Rollout Routing Replay (R3)</a> for MoE RL training</div>
-    <div class="oss-summary"><strong>Distributed & VLM training:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1904">TP+PP</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1914">Context Parallelism</a> for Gemma4 VLM, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2011">TransformerEngine attention injection</a> into HF models, and fixes for <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1985">NaN loss</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1941">activation checkpointing</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2059">multi-image token expansion</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2172">mRoPE under packing</a>; added <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3052">THD packed-sequence support for Qwen3-VL-MoE</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3113">base-model mRoPE resolution for packed VLM training</a></div>
-    <div class="oss-summary"><strong>Checkpointing & training infra:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3125">deferred distributed async checkpoint consolidation</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3130">DCP CPU offload</a>, and a <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3131">checkpoint staging wait option</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3046">per-parameter-group learning rates</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3045">parallel pre-tokenization before packing</a></div>
-    <div class="oss-summary"><strong>Knowledge distillation:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2205">VLM KD recipe with chunked loss</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2211">teacher-model offload</a></div>
-    <div class="oss-summary"><strong>Agent / tool-calling SFT:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2321">multi-turn dataset adapter</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2366">turn-aware history truncation</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2348">reasoning-content masking</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2338">tool-call accuracy evaluator</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3371">SynthTraces agent SFT</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3739">prompt masking through mask_generation_prompt</a>, and an <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2364">SFT tutorial</a></div>
+      <section id="publications">
+        <h2>Publications <a class="more mono" href="https://scholar.google.com/citations?user=ntydloAAAAAJ&amp;hl=zh-CN">all papers →</a></h2>
+        <ul class="outline">
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://arxiv.org/abs/2609.32469">PULSE: Identifying Demonstration-Utility Features with Sparse Autoencoders</a></span>
+              <span class="date mono">NeurIPS 2026</span>
+            </div>
+            <p class="description">Chenduo Hao, Chuanbao Gao, Pinjun Zeng, Jingze Zhu, <strong>Chonghan Liu</strong>, Zidong Liu, Xu Yang</p>
+            <p class="links mono"><a href="https://arxiv.org/abs/2609.32469">paper</a><a href="https://github.com/aohenuo/PULSE">code</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://arxiv.org/abs/2609.31140">Can Linguistic Reasoning Vectors Enhance Multimodal Reasoning Ability?</a></span>
+              <span class="date mono">NeurIPS 2026</span>
+            </div>
+            <p class="description">Ziyi Wang, Li Li, Aolin Zhou, Yankun Shen, <strong>Chonghan Liu</strong>, Shuxia Lin, Xu Yang</p>
+            <p class="links mono"><a href="https://arxiv.org/abs/2609.31140">paper</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://openreview.net/forum?id=R2FH4wrVk2">Rethinking LLM Ensembling from the Perspective of Mixture Models</a> <span class="tag mono">spotlight</span></span>
+              <span class="date mono">ICML 2026</span>
+            </div>
+            <p class="description">Jiale Fu, Yuchu Jiang, <strong>Chonghan Liu</strong>, Joey Tianyi Zhou, Xu Yang</p>
+            <p class="links mono"><a href="https://openreview.net/forum?id=R2FH4wrVk2">paper</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://openreview.net/forum?id=CGLlZsWWhj">Ariadne: A Controllable Framework for Probing and Extending VLM Reasoning Boundaries</a> <span class="tag mono">poster</span></span>
+              <span class="date mono">ACL Main 2026</span>
+            </div>
+            <p class="description">Minghe Shen, Zhuo Zhi, <strong>Chonghan Liu</strong>, Shuo Xing, Zhengzhong Tu, Che Liu</p>
+            <p class="links mono"><a href="https://openreview.net/forum?id=CGLlZsWWhj">paper</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://openreview.net/forum?id=SjInfpK5RM">d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching</a> <span class="tag mono">poster</span></span>
+              <span class="date mono">ICLR 2026</span>
+            </div>
+            <p class="description">Yuchu Jiang, Yue Cai, Xiangzhong Luo, Jiale Fu, Jiarui Wang, <strong>Chonghan Liu</strong>, Xu Yang</p>
+            <p class="links mono"><a href="https://openreview.net/forum?id=SjInfpK5RM">paper</a><a href="https://github.com/Kamichanw/d2Cache">code</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://openreview.net/forum?id=wgGJE6Z1B3">Flatter Tokens are More Valuable for Speculative Draft Model Training</a> <span class="tag mono">poster</span></span>
+              <span class="date mono">ICLR 2026</span>
+            </div>
+            <p class="description">Jiaming Fan, Cao Daming, Xiangzhong Luo, Jiale Fu, <strong>Chonghan Liu</strong>, Xu Yang</p>
+            <p class="links mono"><a href="https://openreview.net/forum?id=wgGJE6Z1B3">paper</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://openreview.net/forum?id=ViRFgwVjk0">AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence</a> <span class="tag mono">poster</span></span>
+              <span class="date mono">ICML 2025</span>
+            </div>
+            <p class="description">Yuliang Liu, Junjie Lu, Zhaoling Chen, Chaofeng Qu, Jason Klein Liu, <strong>Chonghan Liu</strong>, Zefan Cai, Yunhui Xia, Li Zhao, Jiang Bian, Chuheng Zhang, Wei Shen, Zhouhan Lin</p>
+            <p class="links mono"><a href="https://openreview.net/forum?id=ViRFgwVjk0">paper</a></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://arxiv.org/abs/2603.19152">VEPO: Variable Entropy Policy Optimization for Low-Resource Language Foundation Models</a></span>
+              <span class="date mono">arXiv 2026</span>
+            </div>
+            <p class="description"><strong>Chonghan Liu</strong>, Yimin Du, Qi An, Xin He, Cunqi Zhai, Fei Tan, Weijia Lin, Xiaochun Gong, Yongchao Deng, Shousheng Jia, et al.</p>
+            <p class="links mono"><a href="https://arxiv.org/abs/2603.19152">paper</a><span class="tag">arXiv:2603.19152</span></p>
+          </li>
+          <li>
+            <div class="row">
+              <span class="title"><a class="ref" href="https://arxiv.org/abs/2505.10604">Mirage: A Multi-modal Benchmark for Spatial Perception, Reasoning, and Intelligence</a></span>
+              <span class="date mono">arXiv 2025</span>
+            </div>
+            <p class="description"><strong>Chonghan Liu</strong>, Haoran Wang, Frank Henry, Peng Miao, Yifan Zhang, Yue Zhao, Peiran Wu</p>
+            <p class="links mono"><a href="https://arxiv.org/abs/2505.10604">paper</a><span class="tag">arXiv:2505.10604</span></p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="open-source">
+        <h2>Open Source <a class="more mono" href="https://github.com/pulls?q=is%3Apr+author%3Akhazic+archived%3Afalse">all PRs →</a></h2>
+        <ul class="outline">
+          <li id="automodel">
+            <div class="row">
+              <a class="ref" href="https://github.com/NVIDIA-NeMo/Automodel">NVIDIA-NeMo/Automodel</a>
+              <span class="muted">PyTorch-native LLM/VLM training framework</span>
+            </div>
+            <ul class="numbered">
+              <li><strong>Speculative decoding (EAGLE / DFlash / DSpark / Domino / JetSpec / MSD):</strong> grew this from a single <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2263">Llama EAGLE-1 recipe</a> into Automodel's full draft-model training stack: <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2376">P-EAGLE parallel drafting</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2406">DFlash</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2866">DeepSeek V4 DSpark</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2819">Domino online training</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2867">JetSpec causal parallel drafting</a>, plus a <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2841">vLLM/SGLang serving bridge</a> and an <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2308">end-to-end tutorial</a>. Extended it to <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3286">Kimi K3 EAGLE-3</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3287">DFlash</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3263">DSpark</a> drafts, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3071">Gemma4 targets</a>, and vision-language models through a <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3166">multimodal speculative decoding (MSD) core</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3173">ViSpec VLM draft training</a>.</li>
+              <li><strong>Scaling &amp; evaluation:</strong> added <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3002">sequence packing</a> across EAGLE-1/2, DFlash, DSpark, Domino, and JetSpec; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3356">Ulysses context parallelism for the EAGLE-3 draft</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2963">FP8 draft training and LoRA adaptation</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2953">distributed offline feature precomputation</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3042">on-policy target-logit regeneration</a>; and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3037">simulated and real acceptance-length evaluation</a> with <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2966">multi-dataset benchmark sweeps</a>.</li>
+              <li><strong>Model &amp; MoE support:</strong> added training support for <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2039">DeepSeek V4 Flash</a> (plus <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2191">Multi-Token Prediction</a>) and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3855">DeepSeek V4.1 Flash</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2072">Hy3-preview</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2320">Hy-MT2-30B-A3B</a>; brought Kimi Linear to <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3243">context parallelism with packed sequences</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3246">tensor and sequence parallelism</a>; plus <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2797">Rollout Routing Replay (R3)</a> for MoE RL training.</li>
+              <li><strong>Distributed &amp; VLM training:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1904">TP+PP</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1914">Context Parallelism</a> for Gemma4 VLM, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2011">TransformerEngine attention injection</a> into HF models, and fixes for <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1985">NaN loss</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/1941">activation checkpointing</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2059">multi-image token expansion</a>, and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2172">mRoPE under packing</a>; added <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3052">THD packed-sequence support for Qwen3-VL-MoE</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3113">base-model mRoPE resolution for packed VLM training</a>.</li>
+              <li><strong>Checkpointing &amp; training infra:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3125">deferred distributed async checkpoint consolidation</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3130">DCP CPU offload</a>, and a <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3131">checkpoint staging wait option</a>; <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3046">per-parameter-group learning rates</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3045">parallel pre-tokenization before packing</a>.</li>
+              <li><strong>Knowledge distillation:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2205">VLM KD recipe with chunked loss</a> and <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2211">teacher-model offload</a>.</li>
+              <li><strong>Agent / tool-calling SFT:</strong> <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2321">multi-turn dataset adapter</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2366">turn-aware history truncation</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2348">reasoning-content masking</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2338">tool-call accuracy evaluator</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3371">SynthTraces agent SFT</a>, <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/3739">prompt masking through mask_generation_prompt</a>, and an <a href="https://github.com/NVIDIA-NeMo/Automodel/pull/2364">SFT tutorial</a>.</li>
+            </ul>
+          </li>
+
+          <li id="megatron-bridge">
+            <div class="row">
+              <a class="ref" href="https://github.com/NVIDIA-NeMo/Megatron-Bridge">NVIDIA-NeMo/Megatron-Bridge</a>
+              <span class="muted">bridge between HF checkpoints and Megatron-Core training</span>
+            </div>
+            <ul class="numbered">
+              <li><strong>Model bridges:</strong> added a <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4652">MiniMax M3 language-model bridge and recipes</a>, and fixed <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4657">router expert_bias mapping</a> across the DeepSeek family and <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4661">the wrong GELU variant</a> in the Gemma-1 bridge.</li>
+              <li><strong>Training &amp; data correctness:</strong> fixed <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4656">a training_log argument-misbinding bug</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4658">stale non-persistent checkpoints surviving most_recent_k=0</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4659">an Energon test split silently aliasing validation</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4660">a MegatronMIMO padding mask keyed on token value instead of position</a>, and <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4662">a missing pipeline-parallelism guard in QwenVLInferenceWrapper</a>.</li>
+              <li><strong>Speculative decoding:</strong> brought DSpark draft training to Megatron-Core with a <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/5233">design doc</a> and the <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/5234">draft heads and loss</a>.</li>
+            </ul>
+          </li>
+
+          <li id="verl">
+            <div class="row">
+              <a class="ref" href="https://github.com/verl-project/verl">verl-project/verl</a>
+              <span class="muted">RLHF training framework</span>
+            </div>
+            <ul class="numbered">
+              <li>Added <a href="https://github.com/verl-project/verl/pull/6030">Gemma4 FSDP SFT training support</a> and an <a href="https://github.com/verl-project/verl/pull/5681">ExceptionDumpManager to preserve DataProto on trainer crash</a>, plus fixes for <a href="https://github.com/verl-project/verl/pull/5775">mbridge optimizer config propagation</a>, <a href="https://github.com/verl-project/verl/pull/5743">MultiTurnSFTDataset serialization</a>, <a href="https://github.com/verl-project/verl/pull/5612">multimodal chat_template sync</a>, and <a href="https://github.com/verl-project/verl/pull/4854">SFT trainer token-count metrics</a>.</li>
+            </ul>
+          </li>
+
+          <li id="verl-speco">
+            <div class="row">
+              <a class="ref" href="https://github.com/verl-project/verl-SpeCo">verl-project/verl-SpeCo</a>
+              <span class="muted">speculative-decoding drafter-training overlay for verl</span>
+            </div>
+            <ul class="numbered">
+              <li><strong>Drafter backends:</strong> ported Automodel's draft-model training into the verl RL stack as pluggable backends: <a href="https://github.com/verl-project/verl-SpeCo/pull/15">EAGLE-1 / EAGLE-2</a>, <a href="https://github.com/verl-project/verl-SpeCo/pull/17">Domino</a>, <a href="https://github.com/verl-project/verl-SpeCo/pull/18">P-EAGLE parallel drafting</a>, and <a href="https://github.com/verl-project/verl-SpeCo/pull/62">DFlash2</a>, with <a href="https://github.com/verl-project/verl-SpeCo/pull/78">DFlash2 co-training against SGLang rollout</a> and <a href="https://github.com/verl-project/verl-SpeCo/pull/38">standalone offline draft training</a>.</li>
+              <li><strong>Fixes:</strong> <a href="https://github.com/verl-project/verl-SpeCo/pull/29">drafter gradients scaled down by world size</a>, <a href="https://github.com/verl-project/verl-SpeCo/pull/64">P-EAGLE publishing the wrong head and embedding</a>, and <a href="https://github.com/verl-project/verl-SpeCo/pull/63">Domino curriculum restarts on resume</a>.</li>
+            </ul>
+          </li>
+
+          <li id="speculators">
+            <div class="row">
+              <a class="ref" href="https://github.com/vllm-project/speculators">vllm-project/speculators</a>
+              <span class="muted">speculative-decoding draft training for vLLM</span>
+            </div>
+            <ul class="numbered">
+              <li>Fixed an <a href="https://github.com/vllm-project/speculators/pull/897">eager-path draft-token mask that inverted additive mask semantics</a> and added a <a href="https://github.com/vllm-project/speculators/pull/903">warning when a cached token-frequency distribution is silently reused</a>.</li>
+            </ul>
+          </li>
+
+          <li id="llamafactory">
+            <div class="row">
+              <a class="ref" href="https://github.com/hiyouga/LlamaFactory">hiyouga/LlamaFactory</a>
+              <span class="muted">unified efficient fine-tuning framework for 100+ LLMs &amp; VLMs</span>
+            </div>
+            <ul class="numbered">
+              <li><strong>Multimodal (VLM) training, as collaborator:</strong> <a href="https://github.com/hiyouga/LlamaFactory/pull/6233">fixing VLM training hangs under ZeRO-3/FSDP via dummy-image injection</a>, <a href="https://github.com/hiyouga/LlamaFactory/pull/5346">lazy-loading multimodal inputs</a> to cut preprocessing disk usage, <a href="https://github.com/hiyouga/LlamaFactory/pull/6317">Qwen2-VL mRoPE fixes</a>, <a href="https://github.com/hiyouga/LlamaFactory/pull/7830">ViT gradient checkpointing</a>, and <a href="https://github.com/hiyouga/LlamaFactory/pull/8388">VLM utility fixes</a>; that work later moved to <a href="https://github.com/hiyouga/EasyR1">EasyR1</a>.</li>
+              <li><strong>Data &amp; examples:</strong> <a href="https://github.com/hiyouga/LlamaFactory/pull/3490">second ShareGPT conversation format support</a>, a <a href="https://github.com/hiyouga/LlamaFactory/pull/3261">single-GPU full-parameter batch prediction example</a>, and a <a href="https://github.com/hiyouga/LlamaFactory/pull/4961">TRL PPOv2 implementation reference</a>.</li>
+            </ul>
+          </li>
+
+          <li id="langchain-chatchat">
+            <div class="row">
+              <a class="ref" href="https://github.com/chatchat-space/Langchain-Chatchat">chatchat-space/Langchain-Chatchat</a>
+              <span class="muted">RAG &amp; agent app framework over local LLMs</span>
+            </div>
+            <ul class="numbered">
+              <li>Built the pluggable <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3311">model-provider callback/validator architecture</a> and its <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3523">core provider/model manager</a>, including <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3304">Xinference integration</a>.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>© 2026 Chonghan Liu · Last updated October 2026</footer>
   </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge">NVIDIA-NeMo/Megatron-Bridge</a><span class="repo-desc">bridge between HF checkpoints and Megatron-Core training</span></div>
-    <div class="oss-summary"><strong>Model bridges:</strong> added a <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4652">MiniMax M3 language-model bridge and recipes</a>, and fixed <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4657">router expert_bias mapping</a> across the DeepSeek family and <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4661">the wrong GELU variant</a> in the Gemma-1 bridge</div>
-    <div class="oss-summary"><strong>Training & data correctness:</strong> fixed <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4656">a training_log argument-misbinding bug</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4658">stale non-persistent checkpoints surviving most_recent_k=0</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4659">an Energon test split silently aliasing validation</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4660">a MegatronMIMO padding mask keyed on token value instead of position</a>, and <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/4662">a missing pipeline-parallelism guard in QwenVLInferenceWrapper</a></div>
-    <div class="oss-summary"><strong>Speculative decoding:</strong> brought DSpark draft training to Megatron-Core with a <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/5233">design doc</a> and the <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge/pull/5234">draft heads and loss</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/verl-project/verl">verl-project/verl</a><span class="repo-desc">RLHF training framework</span></div>
-    <div class="oss-summary">Added <a href="https://github.com/verl-project/verl/pull/6030">Gemma4 FSDP SFT training support</a> and an <a href="https://github.com/verl-project/verl/pull/5681">ExceptionDumpManager to preserve DataProto on trainer crash</a>, plus fixes for <a href="https://github.com/verl-project/verl/pull/5775">mbridge optimizer config propagation</a>, <a href="https://github.com/verl-project/verl/pull/5743">MultiTurnSFTDataset serialization</a>, <a href="https://github.com/verl-project/verl/pull/5612">multimodal chat_template sync</a>, and <a href="https://github.com/verl-project/verl/pull/4854">SFT trainer token-count metrics</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/verl-project/verl-SpeCo">verl-project/verl-SpeCo</a><span class="repo-desc">speculative-decoding drafter-training overlay for verl</span></div>
-    <div class="oss-summary">Ported Automodel's draft-model training into the verl RL stack as pluggable drafter backends: <a href="https://github.com/verl-project/verl-SpeCo/pull/15">EAGLE-1 / EAGLE-2</a>, <a href="https://github.com/verl-project/verl-SpeCo/pull/17">Domino</a>, <a href="https://github.com/verl-project/verl-SpeCo/pull/18">P-EAGLE parallel drafting</a>, and <a href="https://github.com/verl-project/verl-SpeCo/pull/62">DFlash2</a>, with <a href="https://github.com/verl-project/verl-SpeCo/pull/78">DFlash2 co-training against SGLang rollout</a> and <a href="https://github.com/verl-project/verl-SpeCo/pull/38">standalone offline draft training</a>. Also fixed <a href="https://github.com/verl-project/verl-SpeCo/pull/29">drafter gradients scaled down by world size</a>, <a href="https://github.com/verl-project/verl-SpeCo/pull/64">P-EAGLE publishing the wrong head and embedding</a>, and <a href="https://github.com/verl-project/verl-SpeCo/pull/63">Domino curriculum restarts on resume</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/vllm-project/speculators">vllm-project/speculators</a><span class="repo-desc">speculative-decoding draft training for vLLM</span></div>
-    <div class="oss-summary">Fixed an <a href="https://github.com/vllm-project/speculators/pull/897">eager-path draft-token mask that inverted additive mask semantics</a> and added a <a href="https://github.com/vllm-project/speculators/pull/903">warning when a cached token-frequency distribution is silently reused</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/hiyouga/LlamaFactory">hiyouga/LlamaFactory</a><span class="repo-desc">Unified efficient fine-tuning framework for 100+ LLMs & VLMs</span></div>
-    <div class="oss-summary">Collaborator; maintain multimodal (VLM) training support, including <a href="https://github.com/hiyouga/LlamaFactory/pull/6233">fixing VLM training hangs under ZeRO-3/FSDP via dummy-image injection</a>, <a href="https://github.com/hiyouga/LlamaFactory/pull/5346">lazy-loading multimodal inputs</a> to cut preprocessing disk usage, <a href="https://github.com/hiyouga/LlamaFactory/pull/6317">Qwen2-VL mRoPE fixes</a>, <a href="https://github.com/hiyouga/LlamaFactory/pull/7830">ViT gradient checkpointing</a>, and <a href="https://github.com/hiyouga/LlamaFactory/pull/8388">VLM utility fixes</a>; that work later moved to <a href="https://github.com/hiyouga/EasyR1">EasyR1</a></div>
-    <div class="oss-summary">Added <a href="https://github.com/hiyouga/LlamaFactory/pull/3490">second ShareGPT conversation format support</a> and a <a href="https://github.com/hiyouga/LlamaFactory/pull/3261">single-GPU full-parameter batch prediction example</a>, plus a <a href="https://github.com/hiyouga/LlamaFactory/pull/4961">TRL PPOv2 implementation reference</a></div>
-  </div>
-
-  <div class="oss-group">
-    <div class="oss-repo"><a href="https://github.com/chatchat-space/Langchain-Chatchat">chatchat-space/Langchain-Chatchat</a><span class="repo-desc">RAG & agent app framework over local LLMs</span></div>
-    <div class="oss-summary">Built the pluggable <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3311">model-provider callback/validator architecture</a> and its <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3523">core provider/model manager</a>, including <a href="https://github.com/chatchat-space/Langchain-Chatchat/pull/3304">Xinference integration</a></div>
-  </div>
-
-  <div class="footer">Last updated: September 2026</div>
 </div>
 <script>
   (function () {
+    // Manual theme override on top of the system preference.
+    var root = document.documentElement;
     var btn = document.getElementById('themeToggle');
-    function sync() { btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙'; }
+    var media = window.matchMedia('(prefers-color-scheme: dark)');
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      return t ? t === 'dark' : media.matches;
+    }
+    function sync() { btn.textContent = isDark() ? 'light mode' : 'dark mode'; }
     btn.addEventListener('click', function () {
-      var dark = document.body.classList.toggle('dark');
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
       sync();
     });
+    media.addEventListener('change', sync);
     sync();
+
+    // Highlight the sidebar entry for the section currently in view.
+    var links = {};
+    document.querySelectorAll('.nav a[data-spy]').forEach(function (a) { links[a.dataset.spy] = a; });
+    var sections = Object.keys(links).map(function (id) { return document.getElementById(id); });
+    function setCurrent(id) {
+      Object.keys(links).forEach(function (k) {
+        if (k === id) links[k].setAttribute('aria-current', 'page');
+        else links[k].removeAttribute('aria-current');
+      });
+    }
+    function update() {
+      var current = null;
+      var probe = window.innerHeight * 0.35;
+      sections.forEach(function (s) { if (s.getBoundingClientRect().top <= probe) current = s.id; });
+      setCurrent(current);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   })();
 </script>
 </body>
