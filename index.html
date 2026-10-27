@@ -102,6 +102,9 @@
     .nav a[aria-current="page"] { color: var(--title); font-weight: 600; border-left-color: var(--blue); }
     .series h2 { margin: 0 0 .25rem; padding-left: .75rem; font-size: .72rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; line-height: 1.7; }
     .count { margin-left: .35rem; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; font-variant-numeric: tabular-nums; }
+    .series.collapsed > a:nth-of-type(n+5) { display: none; }
+    .series-toggle { align-self: flex-start; margin: .15rem 0 0; padding: .15rem 0 .15rem .75rem; border: 0; border-left: 2px solid transparent; background: none; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; cursor: pointer; }
+    .series-toggle:hover { color: var(--blue); }
     .theme-toggle { align-self: flex-start; margin: 0; padding: .15rem 0 .15rem .75rem; border: 0; border-left: 2px solid transparent; background: none; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; cursor: pointer; }
     .theme-toggle:hover { color: var(--blue); }
 
@@ -189,6 +192,7 @@
       <a href="#langchain-chatchat">Langchain-Chatchat <span class="count">3</span></a>
       <a href="#gym">Gym <span class="count">1</span></a>
       <a href="#labs-molt">labs-molt <span class="count">1</span></a>
+      <button class="series-toggle" id="seriesToggle" type="button" aria-expanded="true" hidden></button>
     </section>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">dark mode</button>
   </header>
@@ -466,6 +470,25 @@
       sync();
     });
     sync();
+
+    // Collapse the sidebar repository list to its first entries until expanded.
+    var series = document.querySelector('.series');
+    var seriesBtn = document.getElementById('seriesToggle');
+    var hiddenCount = series.querySelectorAll('a').length - 4;
+    if (hiddenCount > 0) {
+      seriesBtn.hidden = false;
+      function syncSeries() {
+        var collapsed = series.classList.contains('collapsed');
+        seriesBtn.textContent = collapsed ? hiddenCount + ' more ▾' : 'show less ▴';
+        seriesBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      }
+      series.classList.add('collapsed');
+      seriesBtn.addEventListener('click', function () {
+        series.classList.toggle('collapsed');
+        syncSeries();
+      });
+      syncSeries();
+    }
 
     // Highlight the sidebar entry for the section currently in view.
     var links = {};
