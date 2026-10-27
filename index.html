@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="dark light">
   <title>Chonghan Liu</title>
   <meta name="description" content="Chonghan Liu, LLM algorithm engineer working on inference optimization, reinforcement learning for LLMs, and multimodal models.">
   <link rel="canonical" href="https://khazic.github.io/">
@@ -21,41 +21,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap">
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f6f7f9;
-      --title: #0a0a0b;
-      --text: #2b2d31;
-      --text-muted: #8a8f98;
-      --border: #ebedf0;
-      --blue: #1f4fff;
-      --blue-soft: rgba(31, 79, 255, .28);
-      --green: #b8ff2e;
-      --marker: rgba(184, 255, 46, .75);
-      --bullet: #c4c8ce;
-      --guideline: #eceef1;
-      --img-filter: none;
-      --font-sans: "Inter", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
-      --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
-      --measure: 760px;
-      color-scheme: light dark;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0b0c0e;
-        --surface: #15171b;
-        --title: #f4f5f6;
-        --text: #c9ccd1;
-        --text-muted: #7c828c;
-        --border: #23262b;
-        --blue: #7b93ff;
-        --blue-soft: rgba(123, 147, 255, .35);
-        --marker: rgba(184, 255, 46, .3);
-        --bullet: #4a4f57;
-        --guideline: #22252a;
-        --img-filter: brightness(.9);
-      }
-    }
-    :root[data-theme="dark"] {
       --bg: #0b0c0e;
       --surface: #15171b;
       --title: #f4f5f6;
@@ -64,10 +29,30 @@
       --border: #23262b;
       --blue: #7b93ff;
       --blue-soft: rgba(123, 147, 255, .35);
+      --green: #b8ff2e;
       --marker: rgba(184, 255, 46, .3);
       --bullet: #4a4f57;
       --guideline: #22252a;
       --img-filter: brightness(.9);
+      --font-sans: "Inter", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+      --measure: 760px;
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      --bg: #ffffff;
+      --surface: #f6f7f9;
+      --title: #0a0a0b;
+      --text: #2b2d31;
+      --text-muted: #8a8f98;
+      --border: #ebedf0;
+      --blue: #1f4fff;
+      --blue-soft: rgba(31, 79, 255, .28);
+      --marker: rgba(184, 255, 46, .75);
+      --bullet: #c4c8ce;
+      --guideline: #eceef1;
+      --img-filter: none;
+      color-scheme: light;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -169,11 +154,10 @@
     }
   </style>
   <script>
-    // Apply a saved manual theme before first paint; otherwise follow the system.
+    // Dark by default; apply a saved light-mode choice before first paint.
     (function () {
       try {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('site-theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
       } catch (e) {}
     })();
   </script>
@@ -384,22 +368,17 @@
 </div>
 <script>
   (function () {
-    // Manual theme override on top of the system preference.
+    // Dark is the default; the toggle stores an explicit light-mode choice.
     var root = document.documentElement;
     var btn = document.getElementById('themeToggle');
-    var media = window.matchMedia('(prefers-color-scheme: dark)');
-    function isDark() {
-      var t = root.getAttribute('data-theme');
-      return t ? t === 'dark' : media.matches;
-    }
+    function isDark() { return root.getAttribute('data-theme') !== 'light'; }
     function sync() { btn.textContent = isDark() ? 'light mode' : 'dark mode'; }
     btn.addEventListener('click', function () {
-      var next = isDark() ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
+      if (isDark()) root.setAttribute('data-theme', 'light');
+      else root.removeAttribute('data-theme');
+      try { localStorage.setItem('site-theme', isDark() ? 'dark' : 'light'); } catch (e) {}
       sync();
     });
-    media.addEventListener('change', sync);
     sync();
 
     // Highlight the sidebar entry for the section currently in view.
