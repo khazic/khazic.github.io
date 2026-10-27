@@ -16,9 +16,10 @@
   <meta name="twitter:site" content="@Chonghan_Liu">
   <link rel="icon" type="image/jpeg" href="https://avatars.githubusercontent.com/u/83893956?v=4">
   <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/83893956?v=4">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap">
+  <!-- Load the web font without blocking first paint; the system font renders until it arrives. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap"></noscript>
   <style>
     :root {
       --bg: #0b0c0e;
@@ -87,47 +88,44 @@
     /* Layout */
     .app { display: grid; grid-template-columns: 220px minmax(0, 1fr); max-width: 1120px; margin: 0 auto; min-height: 100vh; }
     .page { display: flex; flex-direction: column; }
-    main { flex: 1; width: 100%; max-width: var(--measure); margin: 0 auto; padding: 3.5rem 2rem 4rem; }
-    footer { max-width: var(--measure); margin: 0 auto; padding: 2rem 1.25rem 3rem; color: var(--text-muted); font-size: .85rem; }
+    main, footer { max-width: var(--measure); margin: 0 auto; }
+    main { flex: 1; width: 100%; padding: 3.5rem 2rem 4rem; }
+    footer { padding: 2rem 1.25rem 3rem; color: var(--text-muted); font-size: .85rem; }
 
     /* Sidebar */
     .sidebar { position: sticky; top: 0; align-self: start; display: flex; flex-direction: column; gap: 1.75rem; padding: 3.4rem 0 2rem 2.5rem; font-size: .9rem; }
-    .avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin: 0; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
-    .brand { display: flex; align-items: center; gap: .55rem; color: var(--title); font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; text-decoration: none; }
+    .avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+    .sidebar a { color: var(--text); text-decoration: none; }
+    .sidebar .brand { display: flex; align-items: center; gap: .55rem; color: var(--title); font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; }
     .square { width: .7rem; height: .7rem; border-radius: 2px; background: var(--green); box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); flex: none; }
     .nav, .series { display: flex; flex-direction: column; gap: .15rem; }
-    .sidebar a { color: var(--text); text-decoration: none; }
-    .nav a, .series a { padding: .15rem 0 .15rem .75rem; border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
-    .nav a:hover, .series a:hover { color: var(--blue); }
+    .nav a, .series a, .series-toggle, .theme-toggle { padding: .15rem 0 .15rem .75rem; border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+    .nav a:hover, .series a:hover, .series-toggle:hover, .theme-toggle:hover { color: var(--blue); }
     .nav a[aria-current="page"] { color: var(--title); font-weight: 600; border-left-color: var(--blue); }
-    .series h2 { margin: 0 0 .25rem; padding-left: .75rem; font-size: .72rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; line-height: 1.7; }
-    .count { margin-left: .35rem; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; font-variant-numeric: tabular-nums; }
-    .series.collapsed > a:nth-of-type(n+5) { display: none; }
-    .series-toggle { align-self: flex-start; margin: .15rem 0 0; padding: .15rem 0 .15rem .75rem; border: 0; border-left: 2px solid transparent; background: none; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; cursor: pointer; }
-    .series-toggle:hover { color: var(--blue); }
-    .theme-toggle { align-self: flex-start; margin: 0; padding: .15rem 0 .15rem .75rem; border: 0; border-left: 2px solid transparent; background: none; color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; cursor: pointer; }
-    .theme-toggle:hover { color: var(--blue); }
+    .series h2, .count, .series-toggle, .theme-toggle { color: var(--text-muted); font-family: var(--font-mono); font-size: .72rem; }
+    .series h2 { margin: 0 0 .25rem; padding-left: .75rem; font-weight: 400; }
+    .count { margin-left: .35rem; font-variant-numeric: tabular-nums; }
+    .series.collapsed > .extra { display: none; }
+    .series-toggle, .theme-toggle { align-self: flex-start; margin: 0; border: 0; border-left: 2px solid transparent; background: none; cursor: pointer; }
+    .series-toggle { margin-top: .15rem; }
 
     /* Hero */
     .hero { padding: 2rem 0 3rem; }
     .hero h1 { margin: 0; max-width: 15ch; font-size: clamp(2.75rem, 7vw, 4.75rem); font-weight: 800; line-height: 1; letter-spacing: -.045em; color: var(--title); }
-    .byline { margin: 2rem 0 0; max-width: 52ch; color: var(--text-muted); line-height: 1.7; }
+    .byline { margin: 2rem 0 0; max-width: 52ch; color: var(--text-muted); }
     .byline + .byline { margin-top: 1rem; }
 
     /* Sections */
-    section h2 { display: flex; align-items: baseline; gap: 1rem; margin: 4rem 0 1rem; font-size: 2.25rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--title); }
+    main h2 { display: flex; align-items: baseline; gap: 1rem; margin: 4rem 0 1rem; font-size: 2.25rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--title); }
     .more { margin-left: auto; font-weight: 400; letter-spacing: -.01em; color: var(--text-muted); text-decoration: none; white-space: nowrap; }
-    .more:hover { color: var(--blue); }
 
-    .outline, .outline ul { list-style: none; padding-left: 0; margin: 0; }
+    .outline, .numbered { list-style: none; padding-left: 0; margin: 0; }
     .outline > li { position: relative; padding-left: 1.5rem; margin-bottom: 1.4rem; }
     .outline > li::before { content: ""; position: absolute; left: .5rem; top: calc(.85em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--bullet); }
     .row { display: flex; align-items: baseline; gap: .25rem 1rem; flex-wrap: wrap; }
     #publications .row { flex-wrap: nowrap; }
-    #publications .title { flex: 1 1 auto; min-width: 0; }
-    #publications .date { flex: none; }
+    .title { flex: 1 1 auto; min-width: 0; }
     .ref { color: var(--title); font-weight: 600; text-decoration: none; }
-    .ref:hover { color: var(--blue); }
     .date { margin-left: auto; color: var(--text-muted); white-space: nowrap; }
     .tag { color: var(--text-muted); }
     .muted, .description { color: var(--text-muted); font-size: .9rem; }
@@ -135,9 +133,9 @@
     .description strong { color: var(--text); }
     .links { margin: .15rem 0 0; }
     .links a { margin-right: .75rem; text-decoration: none; color: var(--text-muted); }
-    .links a:hover { color: var(--blue); }
+    .more:hover, .ref:hover, .links a:hover { color: var(--blue); }
 
-    .numbered { margin: .4rem 0 0 .6875rem !important; padding-left: .9rem !important; border-left: 1px solid var(--guideline); counter-reset: item; }
+    .numbered { margin: .4rem 0 0 .6875rem; padding-left: .9rem; border-left: 1px solid var(--guideline); counter-reset: item; }
     .numbered > li { position: relative; padding-left: 1.5rem; margin-bottom: .55rem; font-size: .95rem; line-height: 1.6; counter-increment: item; }
     .numbered > li::before { content: counter(item, decimal-leading-zero); position: absolute; top: 0; left: -.1rem; color: var(--text-muted); font-family: var(--font-mono); font-size: .75em; line-height: 2.1; }
 
@@ -147,8 +145,8 @@
       .avatar, .series { display: none; }
       .brand { margin-right: auto; }
       .nav { order: 3; width: 100%; flex-direction: row; flex-wrap: wrap; gap: .25rem .9rem; }
-      .nav a { padding: 0; border-left: none; }
-      .theme-toggle { order: 2; padding: 0; border-left: none; }
+      .nav a, .theme-toggle { padding: 0; border-left: none; }
+      .theme-toggle { order: 2; }
     }
     @media (max-width: 720px) {
       main { padding: 2rem 1rem 3rem; }
@@ -172,8 +170,8 @@
     <img class="avatar" src="https://avatars.githubusercontent.com/u/83893956?v=4" width="56" height="56" alt="Chonghan Liu">
     <a href="#top" class="brand"><span class="square"></span>Chonghan Liu</a>
     <nav class="nav">
-      <a href="#publications" data-spy="publications">Publications</a>
-      <a href="#open-source" data-spy="open-source">Open Source</a>
+      <a href="#publications">Publications</a>
+      <a href="#open-source">Open Source</a>
       <a href="https://scholar.google.com/citations?user=ntydloAAAAAJ&amp;hl=zh-CN">Scholar</a>
       <a href="https://github.com/khazic">GitHub</a>
       <a href="https://x.com/Chonghan_Liu">X</a>
@@ -181,21 +179,22 @@
       <a href="mailto:khazzz1c@gmail.com">Email</a>
     </nav>
     <section class="series">
-      <h2 class="mono">open source</h2>
-      <a href="#automodel">Automodel <span class="count">63</span></a>
-      <a href="#verl-speco">verl-SpeCo <span class="count">17</span></a>
-      <a href="#megatron-bridge">Megatron-Bridge <span class="count">11</span></a>
-      <a href="#llamafactory">LLaMA-Factory <span class="count">8</span></a>
-      <a href="#verl">verl <span class="count">6</span></a>
-      <a href="#speculators">speculators <span class="count">6</span></a>
-      <a href="#sglang-omni">sglang-omni <span class="count">4</span></a>
-      <a href="#nemo-rl">NeMo RL <span class="count">3</span></a>
-      <a href="#langchain-chatchat">Langchain-Chatchat <span class="count">3</span></a>
-      <a href="#gym">Gym <span class="count">1</span></a>
-      <a href="#labs-molt">labs-molt <span class="count">1</span></a>
-      <button class="series-toggle" id="seriesToggle" type="button" aria-expanded="true" hidden></button>
+      <h2>open source</h2>
+      <!-- Counts are filled in by the script from the PR links in each section. -->
+      <a href="#automodel">Automodel <span class="count"></span></a>
+      <a href="#verl-speco">verl-SpeCo <span class="count"></span></a>
+      <a href="#megatron-bridge">Megatron-Bridge <span class="count"></span></a>
+      <a href="#llamafactory">LLaMA-Factory <span class="count"></span></a>
+      <a href="#verl">verl <span class="count"></span></a>
+      <a href="#speculators">speculators <span class="count"></span></a>
+      <a href="#sglang-omni">sglang-omni <span class="count"></span></a>
+      <a href="#nemo-rl">NeMo RL <span class="count"></span></a>
+      <a href="#langchain-chatchat">Langchain-Chatchat <span class="count"></span></a>
+      <a href="#gym">Gym <span class="count"></span></a>
+      <a href="#labs-molt">labs-molt <span class="count"></span></a>
+      <button class="series-toggle" id="seriesToggle" type="button" hidden></button>
     </section>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">dark mode</button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">light mode</button>
   </header>
 
   <div class="page">
@@ -208,7 +207,7 @@
           Collaborator on <a href="https://github.com/hiyouga/LlamaFactory">LLaMA-Factory</a>. Contributing to <a href="https://github.com/NVIDIA-NeMo/Automodel">Automodel</a>, <a href="https://github.com/NVIDIA-NeMo/Megatron-Bridge">Megatron-Bridge</a>, <a href="https://github.com/verl-project/verl">verl</a> &amp; <a href="https://github.com/verl-project/verl-SpeCo">verl-SpeCo</a>.
         </p>
         <p class="byline mono">
-          In 2003 I got my first laptop ever, and I have been terminally online since. An LLM trainer, but life keeps overfitting me: caffeine is daily medicine, social life returns 404, and Google is basically my therapist. Life feels like a bug, but I haven't rage quit yet. Hope we can ride through the best part of life together.
+          <span class="mark">In 2003 I got my first laptop ever</span>, and I have been terminally online since. An LLM trainer, but life keeps overfitting me: caffeine is daily medicine, social life returns 404, and Google is basically my therapist. Life feels like a bug, but I haven't rage quit yet. <span class="mark">Hope we can ride through the best part of life together.</span>
         </p>
       </section>
 
@@ -475,10 +474,17 @@
     });
     sync();
 
-    // Collapse the sidebar repository list to its first entries until expanded.
+    // Sidebar repository list: derive each PR count from the links in its section,
+    // and collapse the list to its first entries until expanded.
+    var VISIBLE = 4;
     var series = document.querySelector('.series');
     var seriesBtn = document.getElementById('seriesToggle');
-    var hiddenCount = series.querySelectorAll('a').length - 4;
+    var seriesLinks = series.querySelectorAll('a[href^="#"]');
+    seriesLinks.forEach(function (a, i) {
+      a.querySelector('.count').textContent = document.querySelectorAll(a.hash + ' a[href*="/pull/"]').length;
+      if (i >= VISIBLE) a.classList.add('extra');
+    });
+    var hiddenCount = seriesLinks.length - VISIBLE;
     if (hiddenCount > 0) {
       seriesBtn.hidden = false;
       function syncSeries() {
@@ -495,20 +501,19 @@
     }
 
     // Highlight the sidebar entry for the section currently in view.
-    var links = {};
-    document.querySelectorAll('.nav a[data-spy]').forEach(function (a) { links[a.dataset.spy] = a; });
-    var sections = Object.keys(links).map(function (id) { return document.getElementById(id); });
-    function setCurrent(id) {
-      Object.keys(links).forEach(function (k) {
-        if (k === id) links[k].setAttribute('aria-current', 'page');
-        else links[k].removeAttribute('aria-current');
-      });
-    }
+    var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    var sections = Array.prototype.map.call(navLinks, function (a) { return document.getElementById(a.hash.slice(1)); });
+    var current = null;
     function update() {
-      var current = null;
+      var next = null;
       var probe = window.innerHeight * 0.35;
-      sections.forEach(function (s) { if (s.getBoundingClientRect().top <= probe) current = s.id; });
-      setCurrent(current);
+      sections.forEach(function (s) { if (s.getBoundingClientRect().top <= probe) next = s; });
+      if (next === current) return;
+      current = next;
+      navLinks.forEach(function (a, i) {
+        if (sections[i] === current) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
     }
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
